@@ -52,16 +52,30 @@ contract RebaseToken is ERC20{
 
     function _calculateUserIntrestSinceLastUpdate(address _user) internal view returns(uint256 linearIntrest){
         //linear intrest = (priciple amount)+ principle amount * interest rate * timeelapsed
-        //taking common otside the bracket priciple amount and multiplying with balance of 
+        //taking common otside the bracket priciple amount and multiplying with balance of in balance of 
         uint256 timeElapsed = block.timestamp - s_userLastTimestamp[_user];
          linearIntrest = (PRECISON_FACTOR+(s_userInterestRate[_user]*timeElapsed));
     }
 
     function _mintAccruedInterest(address _user) internal {
         //balance of the user
+        uint256 previousPrincipleBalance= super.balanceOf(_user);
         //balance with interest
+        uint256 balanceWithInterest = balanceOf(_user);
         //2-1 = interest
+        uint256 interest = balanceWithInterest - previousPrincipleBalance;
         //updated time stamp
         s_userLastTimestamp[_user] = block.timestamp;
+        //mint the interest
+        _mint(_user,interest);
+    }
+
+    function burn(address _from, uint256 _amount) external{
+        if(_amount==type(uint256).max){
+            _amount = balanceOf(_from);
+        }
+    
+        _mintAccruedInterest(_from);
+        _burn(_from,_amount);
     }
 }
