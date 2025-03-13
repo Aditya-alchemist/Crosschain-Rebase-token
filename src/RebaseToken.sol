@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
+pragma solidity 0.8.29;
 
 import {ERC20} from "../lib/openzepplin-contracts/contracts/token/ERC20/ERC20.sol";
 import {Ownable} from "../lib/openzepplin-contracts/contracts/access/Ownable.sol";
@@ -80,10 +80,12 @@ contract RebaseToken is ERC20, Ownable, AccessControl {
         uint256 balanceWithInterest = balanceOf(_user);
         //2-1 = interest
         uint256 interest = balanceWithInterest - previousPrincipleBalance;
-        //updated time stamp
-        s_userLastTimestamp[_user] = block.timestamp;
+     
         //mint the interest
         _mint(_user,interest);
+
+           //updated time stamp
+        s_userLastTimestamp[_user] = block.timestamp;
     }
    
 
