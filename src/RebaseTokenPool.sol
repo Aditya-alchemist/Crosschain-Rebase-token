@@ -9,7 +9,7 @@ import {ERC20} from "../lib/openzepplin-contracts/contracts/token/ERC20/ERC20.so
 
 contract RebaseTokenPool is TokenPool {
       constructor(IERC20 token, address[] memory allowlist, address rmnProxy, address router)
-        TokenPool(token, 18, allowlist, rmnProxy, router)
+        TokenPool(token,  allowlist, rmnProxy, router)
     {}
 
      function lockOrBurn(Pool.LockOrBurnInV1 calldata lockOrBurnIn)
