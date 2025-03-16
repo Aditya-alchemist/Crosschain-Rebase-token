@@ -4,7 +4,7 @@
 
 ## 📌 Overview
 
-The Cross-Chain Rebase Token is an innovative DeFi solution that combines the stability of rebase mechanics with the flexibility of cross-chain functionality. Built on Foundry and powered by Chainlink CCIP, this token system is designed to maintain value stability while enabling seamless transfers across multiple blockchain networks.
+The Cross-Chain Rebase Token is an innovative DeFi solution that combines the linear interest mechanism of rebase mechanics with the flexibility of cross-chain functionality. Built on Foundry and powered by Chainlink CCIP, this token system is designed to maintain value stability while enabling seamless transfers across multiple blockchain networks.
 
 By integrating dynamic interest calculations with secure cross-chain messaging, the project addresses key challenges in DeFi: maintaining consistent value across chains, ensuring liquidity, and providing user-friendly mechanisms for earning interest on holdings.
 
